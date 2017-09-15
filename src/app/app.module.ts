@@ -11,17 +11,36 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';  
+import { LoginPage } from "../pages/login/login";
+import { AuthService } from "./auth.service";
+
+// AF2 Settings
+export const firebaseConfig = {
+ apiKey: "AIzaSyCUY3-3sbpYxIgB878yQC4_Bn0xg2md5SQ",
+ authDomain: "what2eat-32cd4.firebaseapp.com",
+ databaseURL: "https://what2eat-32cd4.firebaseio.com",
+ projectId: "what2eat-32cd4",
+ storageBucket: "",
+ messagingSenderId: "87063529318"
+};
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,12 +48,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
   ]
 })
 export class AppModule {}

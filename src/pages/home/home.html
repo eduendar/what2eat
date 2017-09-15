@@ -1,17 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <button ion-button icon-left>
+      <ion-icon name="add"></ion-icon>
+      add
+    </button>
+    <ion-title>What 2 eat</ion-title>
+    <button ion-button icon-right>
+        <ion-icon name="logout" (click)="logout()"></ion-icon>
+        logout
+      </button>
+
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <h2>We are going to order some food from </h2>
+
+  <h1>
+      <a href="https://pizza.de/lieferservice/eschborn/restaurant-pizzeria-s-eren-duo-eschborn-schwalbacherstr-91/2016/ ">Pizzaria Eren</a>
+
+  </h1>
+
 </ion-content>
