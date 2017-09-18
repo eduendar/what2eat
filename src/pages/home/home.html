@@ -1,12 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button icon-left>
-      <ion-icon name="add"></ion-icon>
-      add
-    </button>
+
     <ion-title>What 2 eat</ion-title>
-    <button ion-button icon-right>
-        <ion-icon name="logout" (click)="logout()"></ion-icon>
+    <button ion-button icon-right (click)="logout()">
+        <ion-icon name="logout" ></ion-icon>
         logout
       </button>
 
@@ -16,10 +13,7 @@
 
 <ion-content padding>
   <h2>We are going to order some food from </h2>
-
-  <h1>
-      <a href="https://pizza.de/lieferservice/eschborn/restaurant-pizzeria-s-eren-duo-eschborn-schwalbacherstr-91/2016/ ">Pizzaria Eren</a>
-
-  </h1>
+  <p><a [href]="from.link">{{from.label}}</a></p>
+  <button ion-button full (click)="openOrderPage()">Order</button>
 
 </ion-content>

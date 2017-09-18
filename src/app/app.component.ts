@@ -19,9 +19,8 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar,
      splashScreen: SplashScreen, afAuth: AngularFireAuth) {
-
-      this.user = afAuth.authState;
-      this.user.subscribe( (user) => {
+      
+      afAuth.authState.subscribe( (user) => {
         console.log(user);
         if (!user){
           this.rootPage = LoginPage;
