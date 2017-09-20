@@ -7,11 +7,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+        <ion-label fixed>Display name</ion-label>
+        <ion-input type="text" #name [value]="user?.displayName"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input ng-readonly="true" type="text" #email [value]="user?.email"></ion-input>
+      </ion-item>
+
+      <button ion-button block (click)="save(name.value)">Login</button>
 </ion-content>

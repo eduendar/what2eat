@@ -13,15 +13,17 @@ export class AuthService {
     this.user = firebaseAuth.authState;
   }
 
-  signup(email: string, password: string) {
+  signup(email: string, password: string, cb: Function) {
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Success!', value);
+        cb(true, value);
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
+        cb(false, err);
       });    
   }
 
@@ -42,5 +44,7 @@ export class AuthService {
       .auth
       .signOut();
   }
+
+  public onStatusChange = this.firebaseAuth.auth.onAuthStateChanged;
 
 }

@@ -18,6 +18,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';  
 import { LoginPage } from "../pages/login/login";
 import { AuthService } from "./auth.service";
+import { RegisterPage } from "../pages/register/register";
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -37,7 +38,8 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    OrderPage
+    OrderPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    OrderPage
+    OrderPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

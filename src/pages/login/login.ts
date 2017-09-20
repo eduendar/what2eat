@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AuthService } from "../../app/auth.service";
+import { RegisterPage } from "../register/register";
 /**
  * Generated class for the LoginPage page.
  *
@@ -23,11 +24,13 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-
-
   
-    login(email:string, password:string) {
-      this.auth.login(email, password);
-    }
+  login(email:string, password:string) {
+    this.auth.login(email, password);
+  }
+
+  register(){
+    this.navCtrl.push(RegisterPage);
+  }
 
 }

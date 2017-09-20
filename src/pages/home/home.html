@@ -1,19 +1,29 @@
 <ion-header>
-  <ion-navbar>
-
-    <ion-title>What 2 eat</ion-title>
-    <button ion-button icon-right (click)="logout()">
-        <ion-icon name="logout" ></ion-icon>
-        logout
+  <ion-toolbar no-border-top>
+    <ion-buttons start>
+      <button ion-button icon-end solid (click)="logout()" color="danger">
+        logout    
+        <ion-icon name="power"></ion-icon> 
       </button>
-
-  </ion-navbar>
-
+    </ion-buttons>
+    <ion-title>What 2 eat</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>We are going to order some food from </h2>
-  <p><a [href]="from.link">{{from.label}}</a></p>
+  <h2>Provider </h2>
+  <div *ngIf="provider">
+    <h2><a target="_BLANK" [href]="provider.link">{{provider.label}}</a></h2>
+  </div>
   <button ion-button full (click)="openOrderPage()">Order</button>
 
+  <ion-list>
+    <ion-list-header>Order list</ion-list-header>
+    <ion-item *ngFor="let item of items">
+      <h3 *ngIf="!item?.user?.name">{{item.user?.email}}</h3>
+      <h3 *ngIf="item?.user?.name">{{item.user?.name}}</h3>
+      <h1>{{item.label}}</h1>
+      <p>{{item.price | currency:'EUR':true}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>
